@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 16px;
+    background: #F5F6F7;
+}
+
+.header {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.main-navs .nav-link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+
+}
+
+.footer-form{
+    width: 356px;
+}
+
+.footer-form .input-group .form-control {
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+
+.footer-form .input-group .input-group-text {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sliders {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../images/slider.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    min-height: 500px;
+}
+
+
+.slider-text{
+    padding-top: 107px !important;
+}
+
+.slider-text h2 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    color: #fff;
+    line-height: 64px;
+}
+
+.sliders .slider-btn {
+    background: #AF9A14;
+    border: none;
+    border-radius: 50px;
+    font-size: 13px;
+}
+
+.jobs h4{
+    color: #2A5B41;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.jobs a{
+    color: #2A5B41;
+}
+
+.job-side h4{
+    color:#001928;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.jobs .job-below .spicon{
+    color: #9B9B9B;
+}
+.jobs .job-below .sptext{
+    color: #6B8849;
+}
+
+footer .quick-link h5{
+    font-size: 24px;
+    font-family: "Outfit", sans-serif;
+    line-height: 37px;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+}
+footer .quick-link li{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .services li{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .services h5{
+    font-size: 24px;
+    font-family: "Outfit", sans-serif;
+    line-height: 37px;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .contacts h5{
+    font-size: 24px;
+    font-family: "Outfit", sans-serif;
+    line-height: 37px;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .contacts p{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.slider-btn {
+    background: #AF9A14;
+    border: none;
+    border-radius: 50px;
+    font-size: 13px;
+}
+
+
+.job-detail-side .jobs h4{
+    color: #B09B14;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+.job-detail-side .jobs .job-below .spicon{
+    color: #B09B14;
+}
+.job-detail-side .jobs .job-below .sptext{
+    color: #B09B14;
+}
+
+.return a{
+
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 55px;
+    /* or 275% */
+    display: flex;
+    align-items: center;
+
+    color: #B09B14;
+
+
+}
+
+.jobs-single h4{
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 55px;
+    /* or 229% */
+    display: flex;
+    align-items: center;
+    color: #1E1E1E;
+
+
+}
+
+
+
+
+
