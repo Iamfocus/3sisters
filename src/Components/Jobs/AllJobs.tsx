@@ -6,6 +6,7 @@ const AllJobs: React.FC<AllJobsProps> = ({ jobs }) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.documentElement.textContent || "";
   };
+
   return (
     <div>
       {jobs.data.length > 0 ? (
@@ -13,12 +14,27 @@ const AllJobs: React.FC<AllJobsProps> = ({ jobs }) => {
           <div key={job.jpid}>
             <div className="jobs mt-3">
               <h4>
-                <a
-                  href={`single-job?id=${encodeURIComponent(job.jpid)}`}
-                  className="text-decoration-none"
-                >
-                  {job.jobTitle.toUpperCase()}
-                </a>
+                {/* START OF THE FIX */}
+                {job.application_link ? (
+                  // If a job has an application_link, create a standard <a> tag
+                  <a
+                    href={job.application_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none"
+                  >
+                    {job.jobTitle.toUpperCase()}
+                  </a>
+                ) : (
+                  // Otherwise, create the internal link as before
+                  <a
+                    href={`single-job?id=${encodeURIComponent(job.jpid)}`}
+                    className="text-decoration-none"
+                  >
+                    {job.jobTitle.toUpperCase()}
+                  </a>
+                )}
+                {/* END OF THE FIX */}
               </h4>
               <div className="text-muted job-below py-2">
                 <span>
