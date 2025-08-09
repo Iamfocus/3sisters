@@ -2,7 +2,6 @@ import Layout from "../Components/Layout.tsx";
 import { Button, Card, CardBody, CardHeader, Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios, {AxiosError} from "axios";
 
 interface Job {
     jobTitle: string;
@@ -61,26 +60,9 @@ const SingleJob = () => {
         fetchJob();
     }, []);
 
-   const apply = async (appUrl: string) => {
-    setLoading(true);
-    setError(null);
-    try {
-        // Comment out this API request to prevent the 500 error
-        // await axios.post(`${baseUrl}/api/apply/${ids}`, {}, {
-        //     headers: {
-        //         'X-API-TOKEN': secret,
-        //         'Accept': 'application/json',
-        //     },
-        // });
-
+    const apply = (appUrl: string) => {
         window.location.href = appUrl;
-    } catch (err) {
-        const axiosError = err as AxiosError;
-        setError(axiosError.message || 'Something went wrong');
-    } finally {
-        setLoading(false);
-    }
-};
+    };
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -107,12 +89,7 @@ const SingleJob = () => {
                             </div>
                         </div>
 
-                       <Button
-  className="slider-btn text-nowrap p-3"
-  onClick={() => apply(singleJob.application_url)}
->
-  Click to apply
-</Button>
+                        <Button className="slider-btn text-nowrap p-3" onClick={() => apply(singleJob.application_url)}>Click to apply</Button>
 
                         <Row className="py-4">
                             <Col md={8} sm={12}>
