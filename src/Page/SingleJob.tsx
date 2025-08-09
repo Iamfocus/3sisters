@@ -61,26 +61,26 @@ const SingleJob = () => {
         fetchJob();
     }, []);
 
-    const apply = async (appUrl: string) => {
-        setLoading(true);
-        setError(null);
-        try {
-            await axios.post(`${baseUrl}/api/apply/${ids}`, {}, {
-                headers: {
-                    'X-API-TOKEN': secret,
-                    'Accept': 'application/json',
-                },
-            });
+   const apply = async (appUrl: string) => {
+    setLoading(true);
+    setError(null);
+    try {
+        // Comment out this API request to prevent the 500 error
+        // await axios.post(`${baseUrl}/api/apply/${ids}`, {}, {
+        //     headers: {
+        //         'X-API-TOKEN': secret,
+        //         'Accept': 'application/json',
+        //     },
+        // });
 
-            window.location.href = appUrl;
-         } catch (err) {
+        window.location.href = appUrl;
+    } catch (err) {
         const axiosError = err as AxiosError;
         setError(axiosError.message || 'Something went wrong');
+    } finally {
+        setLoading(false);
     }
-finally {
-            setLoading(false);
-        }
-    };
+};
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -107,7 +107,12 @@ finally {
                             </div>
                         </div>
 
-                        <Button className="slider-btn text-nowrap p-3" onClick={() => apply(singleJob.application_url)}>Click to apply</Button>
+                       <Button
+  className="slider-btn text-nowrap p-3"
+  onClick={() => apply(singleJob.application_url)}
+>
+  Click to apply
+</Button>
 
                         <Row className="py-4">
                             <Col md={8} sm={12}>
