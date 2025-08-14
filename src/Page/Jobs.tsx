@@ -54,8 +54,8 @@ const Jobs = () => {
 
       const data = await response.json();
 
-      setJobs(data.data); // assumes Laravel returns a paginated resource
-      setLastPage(data.meta?.last_page || 1); // Laravel pagination meta
+      setJobs(data.data);
+      setLastPage(data.meta?.last_page || 1);
     } catch (err) {
       const axiosError = err as AxiosError;
       setError(axiosError.message || "Something went wrong");
@@ -68,12 +68,17 @@ const Jobs = () => {
     fetchJobs();
   }, [page]);
 
-  console.log(jobs);
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    setPage(1); // reset to first page on new search
+    setPage(1);
     fetchJobs();
+  };
+  
+  // NEW FUNCTION TO HANDLE PAGE CHANGES
+  const handlePageChange = (newPage: number) => {
+    if (newPage > 0 && newPage <= lastPage) {
+      setPage(newPage);
+    }
   };
 
   if (loading) {
@@ -138,7 +143,12 @@ const Jobs = () => {
                   className="mt-2"
                   style={{ borderTop: "1px solid #646C76" }}
                 >
-                  <AllJobs jobs={jobs} lastPage={lastPage} page={page} />
+                  <AllJobs
+                    jobs={jobs}
+                    lastPage={lastPage}
+                    page={page}
+                    onPageChange={handlePageChange} // PASSING THE NEW FUNCTION
+                  />
                 </Col>
               </Row>
             </CardBody>

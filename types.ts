@@ -16,6 +16,8 @@ export interface Job {
         slug: string;
     };
     application_link?: string | null; // This is the new property
+    jobQualification?: string; // ADD THIS
+    JobAdditionalInfo?: string; // ADD THIS
 }
 
 // API response
@@ -32,4 +34,5 @@ export interface AllJobsProps {
     jobs: JobsResponse;
     lastPage: number;
     page: number;
+    onPageChange: (newPage: number) => void;
 }

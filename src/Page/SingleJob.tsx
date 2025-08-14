@@ -12,6 +12,8 @@ interface Job {
     min_salary: number;
     max_salary: number;
     jobDescription: string;
+    jobQualification?: string;
+    JobAdditionalInfo?: string;
     application_url: string;
 }
 
@@ -97,11 +99,24 @@ const SingleJob = () => {
                                     <CardHeader className="py-4 bg-white">Job Details</CardHeader>
                                     <CardBody>
                                         <p dangerouslySetInnerHTML={{ __html: decodeHTML(singleJob.jobDescription) }}></p>
+                                        {singleJob.jobQualification && (
+                                            <>
+                                                <h4>Job Qualifications</h4>
+                                                <p dangerouslySetInnerHTML={{ __html: decodeHTML(singleJob.jobQualification) }}></p>
+                                            </>
+                                        )}
+                                        {singleJob.JobAdditionalInfo && (
+                                            <>
+                                                <h4>Additional Information</h4>
+                                                <p dangerouslySetInnerHTML={{ __html: decodeHTML(singleJob.JobAdditionalInfo) }}></p>
+                                            </>
+                                        )}
+                                            <Button className="slider-btn text-nowrap p-3" onClick={() => apply(singleJob.application_url)}>Click to apply</Button>
                                     </CardBody>
                                 </Card>
                             </Col>
 
-                            <Col md={4} sm={12} className="bg-light job-detail-side p-4">
+                  {/*          <Col md={4} sm={12} className="bg-light job-detail-side p-4">
                                 <h3>Similar Jobs</h3>
                                 <div className="jobs mt-3">
                                     <h4>COMMUNICATION SPECIALIST- PEOPLE CHANGE MANAGEMENT (HYBRID)</h4>
@@ -114,7 +129,7 @@ const SingleJob = () => {
                                         <span className="mx-2"><i className="bi bi-cash text-black"></i> $30 - $80 per Month</span>
                                     </div>
                                 </div>
-                            </Col>
+                            </Col> */}
                         </Row>
                     </CardBody>
                 </Card>
