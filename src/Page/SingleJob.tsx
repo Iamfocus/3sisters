@@ -2,7 +2,6 @@ import Layout from "../Components/Layout.tsx";
 import { Button, Card, CardBody, CardHeader, Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios, {AxiosError} from "axios";
 
 interface Job {
     jobTitle: string;
@@ -61,25 +60,8 @@ const SingleJob = () => {
         fetchJob();
     }, []);
 
-    const apply = async (appUrl: string) => {
-        setLoading(true);
-        setError(null);
-        try {
-            await axios.post(`${baseUrl}/api/apply/${ids}`, {}, {
-                headers: {
-                    'X-API-TOKEN': secret,
-                    'Accept': 'application/json',
-                },
-            });
-
-            window.location.href = appUrl;
-         } catch (err) {
-        const axiosError = err as AxiosError;
-        setError(axiosError.message || 'Something went wrong');
-    }
-finally {
-            setLoading(false);
-        }
+    const apply = (appUrl: string) => {
+        window.location.href = appUrl;
     };
 
     if (loading) return <div>Loading...</div>;

@@ -15,6 +15,7 @@ export interface Job {
         name: string; // JSON string e.g. {"en":"Banking"}
         slug: string;
     };
+    application_link?: string | null; // This is the new property
 }
 
 // API response

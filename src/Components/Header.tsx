@@ -107,7 +107,7 @@ const Header = () => {
                         <Nav.Link href="#">What we do</Nav.Link>
                         <Nav.Link href="#">Knowledge Sharing</Nav.Link>
                         <Nav.Link href="#" style={{ color: '#a18c00', fontWeight: 'bold' }}>
-                            Careers
+                           Our Job Board
                         </Nav.Link>
                     </Nav>
 
