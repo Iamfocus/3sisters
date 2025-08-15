@@ -87,7 +87,7 @@ const SingleJob = () => {
                                 <span className="mx-2"><i className="bi bi-folder-fill spicon"></i> <span className="sptext">{singleJob.category?.slug}</span></span>
                                 <span><i className="bi bi-geo-alt-fill spicon"></i><span className="sptext"> {singleJob.jLocation}</span></span>
                                 <span className="mx-2"><i className="bi bi-tag-fill text-black"></i> {singleJob.jobType}</span>
-                                <span className="mx-2"><i className="bi bi-cash text-black"></i> ${singleJob.min_salary} - ${singleJob.max_salary} per Month</span>
+                                <span className="mx-2"><i className="bi bi-cash text-black"></i> ${singleJob.min_salary} - ${singleJob.max_salary} per year</span>
                             </div>
                         </div>
 

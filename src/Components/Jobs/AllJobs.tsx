@@ -63,7 +63,7 @@ const AllJobs: React.FC<AllJobsProps> = ({ jobs }) => {
                   <span className="mx-2">
                     {" "}
                     <i className="bi bi-cash text-black"></i> ${job.min_salary} -
-                    ${job.max_salary} per Month
+                    ${job.max_salary} per year
                   </span>
                 </div>
                 <p

@@ -115,11 +115,11 @@ const Header = () => {
                </Navbar.Brand>
 
                <Nav className="mx-auto d-none d-lg-flex gap-4 main-navs">
-                  <Nav.Link href="#">Home</Nav.Link>
-                  <Nav.Link href="#">Who we are</Nav.Link>
-                  <Nav.Link href="#">What we do</Nav.Link>
-                  <Nav.Link href="#">Knowledge Sharing</Nav.Link>
-                  <Nav.Link href="#" style={{ color: '#a18c00', fontWeight: 'bold' }}>
+                  <Nav.Link href="https://threesistersconsulting.com/">Home</Nav.Link>
+                  <Nav.Link href="https://threesistersconsulting.com/who-we-are/">Who we are</Nav.Link>
+                  <Nav.Link href="https://threesistersconsulting.com/our-services/">What we do</Nav.Link>
+                  <Nav.Link href="https://threesistersconsulting.com/job-assistance/">Knowledge Sharing</Nav.Link>
+                  <Nav.Link href="https://jobs.threesistersconsulting.com/" style={{ color: '#a18c00', fontWeight: 'bold' }}>
                      Our Job Board
                   </Nav.Link>
                </Nav>

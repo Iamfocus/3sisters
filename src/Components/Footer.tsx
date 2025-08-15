@@ -39,10 +39,10 @@ const Footer = () => {
                     <Col md={2} className="mb-4 quick-link">
                         <h5><strong>Quick links</strong></h5>
                         <ul className="list-unstyled mt-3">
-                            <li>About Us</li>
-                            <li>Services</li>
-                            <li>Blog</li>
-                            <li>Contact</li>
+                            <li><a href="https://threesistersconsulting.com/who-we-are/" className="text-decoration-none text-light">Our Story</a></li>
+                            <li><a href="https://threesistersconsulting.com/our-services/" className="text-decoration-none text-light">Our Services</a></li>
+                            <li><a href="https://threesistersconsulting.com/meet-the-team/" className="text-decoration-none text-light">Our Team</a></li>
+                            <li><a href="https://threesistersconsulting.com/delivered-projects/" className="text-decoration-none text-light">Delivered Projects</a></li>
                         </ul>
                     </Col>
 
@@ -50,10 +50,10 @@ const Footer = () => {
                     <Col md={3} className="mb-4 services">
                         <h5><strong>Services</strong></h5>
                         <ul className="list-unstyled mt-3">
-                            <li>&raquo; Facilitation & Engagement</li>
-                            <li>&raquo; Strategic Planning & Advisory</li>
-                            <li>&raquo; Training & Capacity Building</li>
-                            <li>&raquo; Indigenous Business Mentorship</li>
+                             <li><a href="https://threesistersconsulting.com/service/facilitation-engagement/" className="text-decoration-none text-light">&raquo; Engagement & Facilitation </a></li>
+                             <li><a href="https://threesistersconsulting.com/service/strategic-planning-advisory/" className="text-decoration-none text-light">&raquo; Strategic Planning & Advisory</a></li>
+                             <li><a href="https://threesistersconsulting.com/service/training-capacity-building/" className="text-decoration-none text-light">&raquo; Capacity Building</a></li>
+                             <li><a href="https://threesistersconsulting.com/service/indigenous-business-support/" className="text-decoration-none text-light">&raquo; Indigenous Business Mentorship</a></li>
                         </ul>
                     </Col>
 
@@ -61,8 +61,8 @@ const Footer = () => {
                     <Col md={3} className="contacts">
                         <h5><strong>Contact Info</strong></h5>
                         <div className="mt-3">
-                            <p><strong>Email</strong><br />info@threesistersconsulting.com</p>
-                            <p><strong>Phone</strong><br />+1 519 365 3485</p>
+                            <p className="text-light"><strong>Email</strong><br />info@threesistersconsulting.com</p>
+                            <p className="text-light"><strong>Phone</strong><br />+1 519 365 3485</p>
                         </div>
                     </Col>
 
