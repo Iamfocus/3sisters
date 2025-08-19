@@ -15,10 +15,16 @@ const AllJobs: React.FC<AllJobsProps> = ({ jobs }) => {
 
   const today = new Date();
 
+  const sortedJobs = jobs.data.sort((a, b) => {
+    const dateA = new Date(a.JobOpenDate).getTime();
+    const dateB = new Date(b.JobOpenDate).getTime();
+    return dateB - dateA;
+  });
+
   return (
     <div>
-      {jobs.data.length > 0 ? (
-        jobs.data
+      {sortedJobs.length > 0 ? (
+        sortedJobs
           .filter((job) => new Date(job.JobCloseDate) >= today)
           .map((job) => (
             <div key={job.jpid}>

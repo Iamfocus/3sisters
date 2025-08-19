@@ -1,0 +1,163 @@
+/* ===========================
+   Brand variables
+   =========================== */
+:root {
+  --nav-accent: #FCA028;   /* mustard */
+  --nav-bg: #ffffff;
+  --nav-text: #1f2937;     /* deep gray */
+  --nav-muted: #475569;    /* optional for secondary text */
+  --nav-divider: #e9eef3;  /* light gray line */
+}
+
+/* Optional: nav link base styling (matches your look) */
+.main-navs .nav-link {
+  color: #203635;
+  font-weight: 600;
+  padding: 0.5rem 0.25rem;
+  font-family: inter;
+}
+.main-navs .nav-link:hover,
+.main-navs .nav-link:focus {
+  color: var(--nav-accent);
+}
+.main-navs .dropdown-toggle::after {
+  vertical-align: .15em;
+}
+
+/* Ensure dropdown container is a positioning context */
+.main-navs .nav-item.dropdown {
+  position: relative;
+}
+
+/* ===========================
+   Dropdown panel — shared look
+   =========================== */
+.main-navs .dropdown-menu {
+  background: var(--nav-bg);
+  border: 0;
+  border-radius: 0;
+  padding: 8px 0 10px;
+  min-width: 256px;
+  box-shadow: 0 18px 35px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.06);
+  overflow: hidden;
+  z-index: 1100;
+}
+
+/* Top accent bar */
+.main-navs .dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--nav-accent);
+}
+
+/* Items */
+.main-navs .dropdown-item {
+  padding: 16px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--nav-text);
+  background: transparent;
+  border-bottom: 1px solid var(--nav-divider);
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.main-navs .dropdown-item:last-child { border-bottom: 0; }
+.main-navs .dropdown-item:hover,
+.main-navs .dropdown-item:focus {
+  background: transparent;
+  color: var(--nav-accent);
+  border-bottom-color: var(--nav-accent);
+}
+
+/* ===========================
+   Desktop: animated hover open
+   =========================== */
+/* Only on devices that support hover (desktop). This fixes the “needs first click” issue by forcing display:block
+   and hiding via opacity/visibility instead. */
+@media (hover: hover) and (pointer: fine) {
+  .main-navs .nav-item.dropdown > .dropdown-menu {
+    /* Override Bootstrap's display:none */
+    display: block !important;
+
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 0 !important;    /* remove Popper gap so hover doesn’t break */
+
+    /* Hidden state */
+    opacity: 0;
+    transform: translateY(12px);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity .22s ease,
+      transform .22s cubic-bezier(.2,.7,.2,1),
+      visibility 0s linear .22s; /* delay visibility toggle to avoid flicker */
+    will-change: transform, opacity;
+  }
+
+  /* Visible on hover or when Bootstrap adds .show */
+  .main-navs .nav-item.dropdown:hover > .dropdown-menu,
+  .main-navs .nav-item.dropdown:focus-within > .dropdown-menu,
+  .main-navs .nav-item.dropdown > .dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  /* If Popper adds data-bs-popper, keep margin 0 to avoid hover gap */
+  .main-navs .dropdown-menu[data-bs-popper] {
+    margin-top: 0 !important;
+  }
+}
+
+/* ===========================
+   Mobile/tablet (no hover)
+   =========================== */
+/* Keep Bootstrap’s click-to-open behavior on non-hover devices */
+@media (hover: none), (pointer: coarse) {
+  .main-navs .nav-item.dropdown > .dropdown-menu {
+    /* Let Bootstrap control display with .show */
+    display: none;
+    position: static; /* React-Bootstrap often stacks menus in collapsed navs; adjust if needed */
+    margin-top: 0;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+    transition: none;
+  }
+  .main-navs .nav-item.dropdown > .dropdown-menu.show {
+    display: block;
+  }
+}
+
+/* ===========================
+   Misc/compat
+   =========================== */
+/* Ensure header/container doesn’t clip the menu */
+.navbar,
+.navbar .container,
+.navbar .container-fluid {
+  overflow: visible;
+}
+
+/* Optional: don’t tint the toggle background */
+.main-navs .nav-link.show,
+.main-navs .nav-link:focus {
+  background: transparent;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .main-navs .nav-item.dropdown > .dropdown-menu {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+

@@ -1,4 +1,4 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import {
    FaEnvelope,
    FaMapMarkerAlt,
@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useRef, useState } from 'react';
+import '../Header.css';
 
 declare global {
    interface Window {
@@ -116,18 +117,31 @@ const Header = () => {
 
                <Nav className="mx-auto d-none d-lg-flex gap-4 main-navs">
                   <Nav.Link href="https://threesistersconsulting.com/">Home</Nav.Link>
-                  <Nav.Link href="https://threesistersconsulting.com/who-we-are/">Who we are</Nav.Link>
-                  <Nav.Link href="https://threesistersconsulting.com/our-services/">What we do</Nav.Link>
-                  <Nav.Link href="https://threesistersconsulting.com/job-assistance/">Knowledge Sharing</Nav.Link>
-                  <Nav.Link href="https://jobs.threesistersconsulting.com/" style={{ color: '#a18c00', fontWeight: 'bold' }}>
+                  <NavDropdown title="Who We Are" id="basic-nav-dropdown-1">
+                     <NavDropdown.Item href="https://threesistersconsulting.com/who-we-are/">Story Of Three Sisters</NavDropdown.Item>
+                     <NavDropdown.Item href="https://threesistersconsulting.com/who-we-are/company-history/">Company History</NavDropdown.Item>
+                     <NavDropdown.Item href="https://threesistersconsulting.com/who-we-are/meet-the-team/">Meet The Team</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown title="What We Do" id="basic-nav-dropdown-3">                  
+                     <NavDropdown.Item href="https://threesistersconsulting.com/our-services/">Our Services</NavDropdown.Item>
+                     <NavDropdown.Item href="https://threesistersconsulting.com/our-roots/">Our Roots</NavDropdown.Item>
+                      <NavDropdown.Item href="https://threesistersconsulting.com/ongoing-projects/">Ongoing Projects</NavDropdown.Item>
+                       <NavDropdown.Item href="https://threesistersconsulting.com/delivered-projects/">Delivered Projects</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown title="Knowledge Sharing" id="basic-nav-dropdown-2">
+                     <NavDropdown.Item href="https://threesistersconsulting.com/job-assistance/">Job Assistance</NavDropdown.Item>
+                     <NavDropdown.Item href="https://threesistersconsulting.com/indigenous-artists/">Indigenous Artists</NavDropdown.Item>
+                     <NavDropdown.Item href="https://threesistersconsulting.com/indigenous-literature/">Indigenous Literature</NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav.Link href="https://jobs.threesistersconsulting.com/" style={{ color: '#FCA028', fontWeight: 'bold' }}>
                      Our Job Board
                   </Nav.Link>
                </Nav>
 
                <div className="d-flex align-items-center gap-4">
                   <FaSearch size={18} />
-                  <img src="/images/Icon.svg" alt="Icon" className="img-fluid" />
-
+                 {/* <img src="/images/Icon.svg" alt="Icon" className="img-fluid" /> */}
+                  <img  />
                   {/* Language Dropdown */}
                   <select
                      onChange={handleLanguageChange}
