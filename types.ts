@@ -18,6 +18,11 @@ export interface Job {
     application_link?: string | null; // This is the new property
     jobQualification?: string; // ADD THIS
     JobAdditionalInfo?: string; // ADD THIS
+
+    location_name: string;
+    city_relation: {
+    city: string;
+  };
 }
 
 // API response

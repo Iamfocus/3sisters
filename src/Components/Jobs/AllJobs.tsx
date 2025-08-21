@@ -60,7 +60,7 @@ const AllJobs: React.FC<AllJobsProps> = ({ jobs }) => {
                   <span>
                     {" "}
                     <i className="bi bi-geo-alt-fill spicon"></i>
-                    <span className="sptext">{job.jLocation}</span>
+                    <span className="sptext">{job.location_name || job.city_relation?.city || job.jLocation}</span>
                   </span>
                   <span className="mx-2">
                     {" "}

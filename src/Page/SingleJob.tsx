@@ -2,6 +2,7 @@ import Layout from "../Components/Layout.tsx";
 import { Button, Card, CardBody, CardHeader, Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios, { AxiosError } from "axios"; // ADD THIS IMPORT
 
 interface Job {
     jobTitle: string;
@@ -15,6 +16,8 @@ interface Job {
     jobQualification?: string;
     JobAdditionalInfo?: string;
     application_url: string;
+    location_name: string;
+
 }
 
 const SingleJob = () => {
@@ -62,8 +65,23 @@ const SingleJob = () => {
         fetchJob();
     }, []);
 
-    const apply = (appUrl: string) => {
-        window.location.href = appUrl;
+    const apply = async (appUrl: string) => { // ADD 'async' HERE
+        setLoading(true);
+        setError(null);
+        try {
+            await axios.post(`${baseUrl}/api/apply/${ids}`, {}, {
+                headers: {
+                    'X-API-TOKEN': secret,
+                    'Accept': 'application/json',
+                },
+            });
+            window.location.href = appUrl;
+         } catch (err) {
+            const axiosError = err as AxiosError;
+            setError(axiosError.message || 'Something went wrong');
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (loading) return <div>Loading...</div>;
@@ -85,7 +103,7 @@ const SingleJob = () => {
                             <div className="text-muted job-below py-2">
                                 <span><i className="bi bi-clock-fill text-black"></i> {singleJob.JobOpenDate}</span>
                                 <span className="mx-2"><i className="bi bi-folder-fill spicon"></i> <span className="sptext">{singleJob.category?.slug}</span></span>
-                                <span><i className="bi bi-geo-alt-fill spicon"></i><span className="sptext"> {singleJob.jLocation}</span></span>
+                                <span><i className="bi bi-geo-alt-fill spicon"></i><span className="sptext"> {singleJob.location_name}</span></span>
                                 <span className="mx-2"><i className="bi bi-tag-fill text-black"></i> {singleJob.jobType}</span>
                                 <span className="mx-2"><i className="bi bi-cash text-black"></i> ${singleJob.min_salary} - ${singleJob.max_salary} per year</span>
                             </div>
@@ -116,7 +134,7 @@ const SingleJob = () => {
                                 </Card>
                             </Col>
 
-                  {/*          <Col md={4} sm={12} className="bg-light job-detail-side p-4">
+                  {/* <Col md={4} sm={12} className="bg-light job-detail-side p-4">
                                 <h3>Similar Jobs</h3>
                                 <div className="jobs mt-3">
                                     <h4>COMMUNICATION SPECIALIST- PEOPLE CHANGE MANAGEMENT (HYBRID)</h4>
